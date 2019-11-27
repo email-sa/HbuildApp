@@ -1,37 +1,26 @@
-## Welcome to GitHub Pages
+## 使用Hbuild 打包vue项目
 
-You can use the [editor on GitHub](https://github.com/email-sa/HbuildApp/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
+打开hbuildx，新建一个5+App项目
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+然后修改项目中生成的index.html文件内容，填写需要访问的网址，填写测试连接就是打包测试包，也可以打包发布包
 
-### Markdown
+根据项目修改manifest.js 的文件配置
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+以上配置好之后，原生APP云打包，就可以生成Android或是iOS安装包
 
-```markdown
-Syntax highlighted code block
 
-# Header 1
-## Header 2
-### Header 3
+错误文件运行后的样式
 
-- Bulleted
-- List
+![加载失败的页面截图](/error.png)
 
-1. Numbered
-2. List
+![设置页面的截图](/set.png)
 
-**Bold** and _Italic_ and `Code` text
+具体安装步骤可以看 [用HbuildX打包vue 项目为App](https://blog.csdn.net/weixin_44514665/article/details/103213980).
 
-[Link](url) and ![Image](src)
-```
+### 本项目使用说明
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+- 克隆项目到本地
+- 然后用hbuildx 导入项目
+- 修改index.html 和error.html 里面的项目链接
+- 然后打包即可
 
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/email-sa/HbuildApp/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
