@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>err</title>
+		<script src="js/mui.min.js"></script>
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+			}
+
+			html,
+			body {
+				width: 100%;
+				height: 100%;
+				background-color: rgba(245, 245, 245, 1);
+			}
+
+			.err_img {
+				width: 4.62rem;
+				margin: auto;
+				padding-top: 1.09rem;
+			}
+
+			.err_img>img {
+				display: block;
+				width: 100%;
+			}
+
+			.err_text {
+				font-size: .34rem;
+				color: #666666;
+				text-align: center;
+				margin-top: .75rem;
+			}
+
+			button {
+				display: block;
+				width: 3.6rem;
+				margin: auto;
+				height: .72rem;
+				color: #E71514;
+				font-size: .34rem;
+				text-align: center;
+				border: 1px solid #E71514;
+				border-radius: .36rem;
+				outline: none;
+				background: white;
+				margin-top: .4rem;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="err_content">
+			<div class="err_img"><img src="img/img.png" alt=""></div>
+			<div class="err_text">
+				网络连接失败，刷新试试
+			</div>
+			<button type="button" id="refresh">刷新</button>
+
+			<button type="button" id="toSetUp">设置</button>
+		</div>
+	</body>
+	<script type="text/javascript">
+		(function(doc, win) {
+			var docEl = doc.documentElement,
+				recalc = function() {
+					var clientWidth = docEl.clientWidth;
+					docEl.style.fontSize = clientWidth * (100 / 750) + 'px';
+				};
+			if (doc.addEventListener) {
+				win.addEventListener('resize', recalc, false);
+			} else {
+				win.attachEvent('onresize', recalc);
+			}
+			recalc();
+		})(document, window);
+		document.getElementById('refresh').addEventListener('tap', function() {
+			// 用于获取网络信息-获取设备当前连接的网络类型 CONNECTION_NONE 未连接网络
+			if (plus.networkinfo.getCurrentType() == plus.networkinfo.CONNECTION_NONE) {
+				mui.toast("无网络访问");
+			} else {
+				var curr = plus.webview.currentWebview()
+				mui.openWindow({
+					url: "http://192.168.88.19:8080",
+					id: 'home',
+					style: {
+						top: '0px',
+						bottom: '0px',
+						kernel: 'WKWebview',
+						errorPage: 'error.html'
+					},
+					createNew: true,
+					waiting: {
+						autoShow: false
+					}
+				})
+			}
+		})
+		document.getElementById('toSetUp').addEventListener('tap',function(){
+			mui.openWindow({
+				url:'set.html',
+				id:'set',
+				styles: {
+					top: '0px',
+					bottom: '0px',
+					kernel:'WKWebview'
+				},
+				createNew:true,
+				waiting:{
+				  autoShow:false
+				}
+			})
+		})
+	</script>
+</html>

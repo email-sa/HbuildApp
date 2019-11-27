@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+	<!--viewport 属性，它用于移动端显示优化的 -->
+	<meta http-equiv="expires" content="0"/>
+	<meta http-equiv="Pragma" content="no-cache"/>
+	<meta http-equiv="Cache-Control" content="no-cache"/>
+    <title>home</title>
+	<script src="js/mui.min.js"></script>
+    <script type="text/javascript" charset="UTF-8">
+		mui.plusReady(function() {
+			plus.webview.prefetchURL('http://172.168.88.19:8080'); //  链接地址根据实际项目调整
+			plus.cache.clear(function(){
+				var page = plus.webview.create('http://172.168.88.19:8080', 'home', {
+					top: '0px',
+					bottom: '0px',
+					kernel: 'WKWebview',
+					scrollIndicator: 'none',
+					errorPage: 'error.html'
+				});
+				plus.webview.currentWebview().append(page);
+			})
+		})
+    </script>
+</head>
+<body></body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>设置</title>
+		<link href="css/mui.min.css" rel="stylesheet" />
+	</head>
+	<body>
+		<header class="mui-bar mui-bar-nav" style="height:4rem;padding-top:1.2rem;">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">设置</h1>
+		</header>
+		<div class="mui-content" style="margin-top: .6rem;">
+			<ul class="mui-table-view">
+				<li class="mui-table-view-cell" id="clearCache">清理缓存</li>
+				<li class="mui-table-view-cell" id="network">检查网络状态</li>
+				<li class="mui-table-view-cell" id="model">获取设备信息</li>
+				<li class="mui-table-view-cell">版本：1.0</li>
+			</ul>
+		</div>
+		<script type="js/mui.min.js"></script>
+		<script type="text/javascript">
+			document.getElementById('clearCache').addEventListener('tap',function() {
+				plus.cache.clear(function() {
+					mui.toast('缓存清理完成')
+				});
+			})
+			document.getElementById("network").addEventListener('tap',function(){
+				if (plus.networkinfo.getCurrentType() == plus.networkinfo.CONNECTION_NONE) {
+					mui.toast("无网络访问");
+				} else {
+					mui.toast("网络正常");
+				}
+			})
+			document.getElementById("model").addEventListener('tap',function(){
+				mui.alert('型号：'+plus.device.model + ',生产厂商:'+plus.device.vendor,'设备信息');
+			})
+		</script>
+	</body>
+</html>

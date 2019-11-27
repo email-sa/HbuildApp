@@ -8,14 +8,15 @@
 
 以上配置好之后，原生APP云打包，就可以生成Android或是iOS安装包
 
+具体安装步骤可以看 [用HbuildX打包vue 项目为App](https://blog.csdn.net/weixin_44514665/article/details/103213980).
 
-错误文件运行后的样式
+错误文件运行后的页面截图
 
 ![加载失败的页面截图](/error.png)
+设置文件运行后的页面截图
 
 ![设置页面的截图](/set.png)
 
-具体安装步骤可以看 [用HbuildX打包vue 项目为App](https://blog.csdn.net/weixin_44514665/article/details/103213980).
 
 ### 本项目使用说明
 
